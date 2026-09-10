@@ -22,4 +22,4 @@ Add screenshots or screen recordings if the change affects the UI.
 
 ## Notes
 
-Mention any limitations, follow-up work, or decisions reviewers should know about.
+Mention any limitations, follow-up work, or decisions reviewers should know about..
