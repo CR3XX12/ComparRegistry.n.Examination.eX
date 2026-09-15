@@ -1,0 +1,99 @@
+{
+  "source": {
+    "name": "IMPI Datos Abiertos - SignosDistintivos.xml",
+    "url": "https://datosabiertos.impi.gob.mx/Descargas/SignosDistintivos.xml",
+    "reportId": "202608",
+    "importedAt": "2026-09-15T16:28:15.904Z",
+    "rawRecordCount": 15396,
+    "sampledRecordCount": 10
+  },
+  "limitations": [
+    "This monthly open-data file does not include Nice class in the inspected sample.",
+    "This monthly open-data file does not include current legal status in the inspected sample.",
+    "This monthly open-data file does not include registration number in the inspected sample.",
+    "This monthly open-data file does not include goods/services descriptions in the inspected sample.",
+    "Records should still be verified in Acervo, MARCia, SIGA, or ViDoc before product decisions."
+  ],
+  "records": [
+    {
+      "name": "ADBAC 7 VIAS",
+      "niceClass": 0,
+      "status": "Pending",
+      "owner": "ADLER PHARMA S. DE R.L. DE C.V.",
+      "expedienteNumber": "3676674",
+      "goodsServicesDescription": "REGISTRO DE MARCA. NOMINATIVA. Filing date: 2026-08-03T00:11:33-05:00. Nice class and goods/services are not present in this open-data sample."
+    },
+    {
+      "name": "ADBAC 8 VIAS",
+      "niceClass": 0,
+      "status": "Pending",
+      "owner": "ADLER PHARMA S. DE R.L. DE C.V.",
+      "expedienteNumber": "3676675",
+      "goodsServicesDescription": "REGISTRO DE MARCA. NOMINATIVA. Filing date: 2026-08-03T00:11:54-05:00. Nice class and goods/services are not present in this open-data sample."
+    },
+    {
+      "name": "ADBAC FIEBRE CARBONASA",
+      "niceClass": 0,
+      "status": "Pending",
+      "owner": "ADLER PHARMA S. DE R.L. DE C.V.",
+      "expedienteNumber": "3676676",
+      "goodsServicesDescription": "REGISTRO DE MARCA. NOMINATIVA. Filing date: 2026-08-03T00:12:16-05:00. Nice class and goods/services are not present in this open-data sample."
+    },
+    {
+      "name": "ADVAC NEWCASTLE",
+      "niceClass": 0,
+      "status": "Pending",
+      "owner": "ADLER PHARMA S. DE R.L. DE C.V.",
+      "expedienteNumber": "3676677",
+      "goodsServicesDescription": "REGISTRO DE MARCA. NOMINATIVA. Filing date: 2026-08-03T00:12:34-05:00. Nice class and goods/services are not present in this open-data sample."
+    },
+    {
+      "name": "ADVAC PUPPY TRIPLE",
+      "niceClass": 0,
+      "status": "Pending",
+      "owner": "ADLER PHARMA S. DE R.L. DE C.V.",
+      "expedienteNumber": "3676678",
+      "goodsServicesDescription": "REGISTRO DE MARCA. NOMINATIVA. Filing date: 2026-08-03T00:12:53-05:00. Nice class and goods/services are not present in this open-data sample."
+    },
+    {
+      "name": "ADVAC QUINTUPLE",
+      "niceClass": 0,
+      "status": "Pending",
+      "owner": "ADLER PHARMA S. DE R.L. DE C.V.",
+      "expedienteNumber": "3676679",
+      "goodsServicesDescription": "REGISTRO DE MARCA. NOMINATIVA. Filing date: 2026-08-03T00:13:15-05:00. Nice class and goods/services are not present in this open-data sample."
+    },
+    {
+      "name": "ADVAC RABIA",
+      "niceClass": 0,
+      "status": "Pending",
+      "owner": "ADLER PHARMA S. DE R.L. DE C.V.",
+      "expedienteNumber": "3676680",
+      "goodsServicesDescription": "REGISTRO DE MARCA. NOMINATIVA. Filing date: 2026-08-03T00:13:34-05:00. Nice class and goods/services are not present in this open-data sample."
+    },
+    {
+      "name": "KAOMOL",
+      "niceClass": 0,
+      "status": "Pending",
+      "owner": "ADLER PHARMA S. DE R.L. DE C.V.",
+      "expedienteNumber": "3676681",
+      "goodsServicesDescription": "REGISTRO DE MARCA. NOMINATIVA. Filing date: 2026-08-03T00:13:57-05:00. Nice class and goods/services are not present in this open-data sample."
+    },
+    {
+      "name": "PROTEXA",
+      "niceClass": 0,
+      "status": "Pending",
+      "owner": "ADLER PHARMA S. DE R.L. DE C.V.",
+      "expedienteNumber": "3676682",
+      "goodsServicesDescription": "REGISTRO DE MARCA. NOMINATIVA. Filing date: 2026-08-03T00:14:17-05:00. Nice class and goods/services are not present in this open-data sample."
+    },
+    {
+      "name": "ALMAGRO",
+      "niceClass": 0,
+      "status": "Pending",
+      "owner": "ADLER PHARMA S. DE R.L. DE C.V.",
+      "expedienteNumber": "3676683",
+      "goodsServicesDescription": "REGISTRO DE MARCA. NOMINATIVA. Filing date: 2026-08-03T00:14:38-05:00. Nice class and goods/services are not present in this open-data sample."
+    }
+  ]
+}

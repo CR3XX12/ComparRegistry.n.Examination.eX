@@ -66,7 +66,7 @@ export function ResultsTable({ results }: ResultsTableProps) {
                   </div>
                   <small>Name: {result.nameSimilarityScore}</small>
                 </td>
-                <td>{result.niceClass}</td>
+                <td>{result.niceClass > 0 ? result.niceClass : "Not provided"}</td>
                 <td>
                   <span className="status">{result.status}</span>
                 </td>

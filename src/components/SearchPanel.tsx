@@ -23,7 +23,7 @@ export function SearchPanel({ query, onQueryChange, onAnalyze }: SearchPanelProp
           type="text"
           value={query}
           onChange={(event) => onQueryChange(event.target.value)}
-          placeholder="Try NIKE, NIKKE, PUMA..."
+          placeholder="Try ADBAC, ADVAC, KAOMOL..."
           autoComplete="off"
         />
         <button type="submit">Analyze</button>
