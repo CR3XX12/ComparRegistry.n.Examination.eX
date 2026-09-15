@@ -38,6 +38,35 @@ main {
   padding: 48px 0;
 }
 
+.language-toggle {
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+
+.language-toggle button {
+  min-width: 88px;
+  height: 38px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--muted);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.language-toggle button:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.language-toggle button.active {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #ffffff;
+}
+
 .hero {
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(360px, 0.85fr);
