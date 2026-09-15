@@ -61,16 +61,6 @@ function cleanText(value: string | number | undefined, fallback: string): string
   return cleaned.length > 0 ? cleaned : fallback;
 }
 
-function mapStatus(tipoSolicitudDesc: string): TrademarkRecord["status"] {
-  const normalized = tipoSolicitudDesc.toUpperCase();
-
-  if (normalized.includes("REGISTRO") || normalized.includes("PUBLICACION")) {
-    return "Pending";
-  }
-
-  return "Pending";
-}
-
 function mapImpiRecord(record: ImpiXmlRecord): TrademarkRecord | null {
   const name = cleanText(record.denominacion, "");
 
@@ -85,7 +75,8 @@ function mapImpiRecord(record: ImpiXmlRecord): TrademarkRecord | null {
   return {
     name,
     niceClass: 0,
-    status: mapStatus(tipoSolicitudDesc),
+    // The monthly feed describes application type, not final legal status.
+    status: "Pending",
     owner: cleanText(record.nombreInteresado, "Unknown owner"),
     expedienteNumber: cleanText(record.expediente, "Unknown expediente"),
     goodsServicesDescription: `${tipoSolicitudDesc}. ${tipoMarcaDesc}. Filing date: ${fechaPresentacion}. Nice class and goods/services are not present in this open-data sample.`
