@@ -4,7 +4,10 @@ out
 dist
 .env
 .env.local
+.tmp
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
+data/raw
+src/data/generated

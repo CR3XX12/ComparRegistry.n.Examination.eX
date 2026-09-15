@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "import:impi:sample": "tsc scripts/import-impi-sample.ts --ignoreConfig --module commonjs --target es2022 --outDir .tmp/scripts --skipLibCheck --esModuleInterop --types node && node .tmp/scripts/scripts/import-impi-sample.js"
   },
   "dependencies": {
     "next": "16.3.4",
@@ -16,6 +17,7 @@
     "@types/node": "22.20.2",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
+    "fast-xml-parser": "^5.11.1",
     "typescript": "7.0.2"
   }
 }
