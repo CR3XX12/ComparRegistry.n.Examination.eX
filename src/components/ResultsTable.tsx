@@ -1,7 +1,9 @@
+import { formatMessage, type Dictionary } from "@/i18n";
 import type { TrademarkSearchResult } from "@/types/trademark";
 
 interface ResultsTableProps {
   results: TrademarkSearchResult[];
+  content: Dictionary["results"];
 }
 
 function getScoreTone(score: number): string {
@@ -16,12 +18,31 @@ function getScoreTone(score: number): string {
   return "low";
 }
 
-export function ResultsTable({ results }: ResultsTableProps) {
+function getRecordSummary(result: TrademarkSearchResult, content: Dictionary["results"]): string {
+  if (!result.applicationType && !result.markType && !result.filingDate) {
+    return content.recordSummary.missingGoodsServices;
+  }
+
+  const applicationTypes: Record<string, string> = content.recordSummary.applicationTypes;
+  const markTypes: Record<string, string> = content.recordSummary.markTypes;
+  const summaryParts = [
+    result.applicationType
+      ? (applicationTypes[result.applicationType] ?? result.applicationType)
+      : undefined,
+    result.markType ? (markTypes[result.markType] ?? result.markType) : undefined,
+    result.filingDate ? `${content.recordSummary.filingDate}: ${result.filingDate}` : undefined,
+    content.recordSummary.missingGoodsServices
+  ].filter(Boolean);
+
+  return summaryParts.join(". ");
+}
+
+export function ResultsTable({ results, content }: ResultsTableProps) {
   if (results.length === 0) {
     return (
       <section className="empty-state">
-        <h2>Start with a trademark name</h2>
-        <p>Enter a denomination to see ranked mock records and similarity explanations.</p>
+        <h2>{content.emptyTitle}</h2>
+        <p>{content.emptyDescription}</p>
       </section>
     );
   }
@@ -30,8 +51,8 @@ export function ResultsTable({ results }: ResultsTableProps) {
     <section className="results-section" aria-live="polite">
       <div className="section-heading">
         <div>
-          <h2>Ranked Results</h2>
-          <p>{results.length} mock records sorted by final score.</p>
+          <h2>{content.title}</h2>
+          <p>{formatMessage(content.count, { count: results.length })}</p>
         </div>
       </div>
 
@@ -39,14 +60,14 @@ export function ResultsTable({ results }: ResultsTableProps) {
         <table>
           <thead>
             <tr>
-              <th>Rank</th>
-              <th>Trademark</th>
-              <th>Score</th>
-              <th>Nice Class</th>
-              <th>Status</th>
-              <th>Owner</th>
-              <th>Numbers</th>
-              <th>Why It Ranked</th>
+              <th>{content.columns.rank}</th>
+              <th>{content.columns.trademark}</th>
+              <th>{content.columns.score}</th>
+              <th>{content.columns.niceClass}</th>
+              <th>{content.columns.status}</th>
+              <th>{content.columns.owner}</th>
+              <th>{content.columns.numbers}</th>
+              <th>{content.columns.why}</th>
             </tr>
           </thead>
           <tbody>
@@ -55,7 +76,7 @@ export function ResultsTable({ results }: ResultsTableProps) {
                 <td className="rank">#{result.rank}</td>
                 <td>
                   <strong>{result.name}</strong>
-                  <span>{result.goodsServicesDescription}</span>
+                  <span>{getRecordSummary(result, content)}</span>
                 </td>
                 <td>
                   <div className={`score-badge ${getScoreTone(result.finalScore)}`}>
@@ -64,18 +85,30 @@ export function ResultsTable({ results }: ResultsTableProps) {
                   <div className="score-bar" aria-hidden="true">
                     <span style={{ width: `${result.finalScore}%` }} />
                   </div>
-                  <small>Name: {result.nameSimilarityScore}</small>
+                  <small>
+                    {content.scoreNameLabel}: {result.nameSimilarityScore}
+                  </small>
                 </td>
-                <td>{result.niceClass > 0 ? result.niceClass : "Not provided"}</td>
+                <td>{result.niceClass > 0 ? result.niceClass : content.notProvided}</td>
                 <td>
-                  <span className="status">{result.status}</span>
+                  <span className="status">{content.statuses[result.status]}</span>
                 </td>
                 <td>{result.owner}</td>
                 <td>
-                  <span>Exp. {result.expedienteNumber}</span>
-                  <span>Reg. {result.registrationNumber ?? "Not available"}</span>
+                  <span>
+                    {content.expedientePrefix} {result.expedienteNumber}
+                  </span>
+                  <span>
+                    {content.registrationPrefix}{" "}
+                    {result.registrationNumber ?? content.registrationUnavailable}
+                  </span>
                 </td>
-                <td>{result.explanation}</td>
+                <td>
+                  {formatMessage(
+                    content.explanations[result.explanation.key],
+                    result.explanation.values ?? {}
+                  )}
+                </td>
               </tr>
             ))}
           </tbody>

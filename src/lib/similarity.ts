@@ -1,6 +1,7 @@
 import type { TrademarkRecord, TrademarkSearchResult } from "@/types/trademark";
 
 const RELATED_NICE_CLASSES = new Set([18, 25, 28, 35]);
+type Explanation = TrademarkSearchResult["explanation"];
 
 export function normalizeTrademarkName(value: string): string {
   return value
@@ -120,39 +121,42 @@ function getClassAdjustment(record: TrademarkRecord): number {
   return -4;
 }
 
-function explainResult(query: string, record: TrademarkRecord, nameSimilarityScore: number): string {
+function explainResult(query: string, record: TrademarkRecord, nameSimilarityScore: number): Explanation {
   const normalizedQuery = normalizeTrademarkName(query);
   const normalizedName = normalizeTrademarkName(record.name);
 
   if (normalizedQuery === normalizedName) {
-    return "Exact match with the searched denomination.";
+    return { key: "exactMatch" };
   }
 
   if (normalizedName.includes(normalizedQuery)) {
     if (record.niceClass <= 0) {
-      return `Contains "${normalizedQuery}". Nice class was not provided in this IMPI open-data sample.`;
+      return { key: "containsQueryNoClass", values: { query: normalizedQuery } };
     }
 
-    return `Contains "${normalizedQuery}" and belongs to Nice class ${record.niceClass}.`;
+    return {
+      key: "containsQueryWithClass",
+      values: { query: normalizedQuery, niceClass: record.niceClass }
+    };
   }
 
   if (normalizedQuery.includes(normalizedName)) {
-    return `The searched denomination contains "${normalizedName}", so this shorter mark may be relevant.`;
+    return { key: "queryContainsName", values: { name: normalizedName } };
   }
 
   if (nameSimilarityScore >= 80) {
-    return `Very close spelling variation of ${normalizedQuery}.`;
+    return { key: "veryClose", values: { query: normalizedQuery } };
   }
 
   if (nameSimilarityScore >= 62) {
-    return `Moderate textual and phonetic similarity to ${normalizedQuery}.`;
+    return { key: "moderate", values: { query: normalizedQuery } };
   }
 
   if (record.niceClass > 0 && RELATED_NICE_CLASSES.has(record.niceClass)) {
-    return "Lower textual similarity, but the class is related to apparel, retail, bags, or sporting goods.";
+    return { key: "relatedClass" };
   }
 
-  return "Different brand name, low textual similarity.";
+  return { key: "lowSimilarity" };
 }
 
 export function analyzeTrademarkSimilarity(

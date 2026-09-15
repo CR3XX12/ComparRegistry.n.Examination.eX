@@ -1,0 +1,75 @@
+{
+  "language": {
+    "label": "Idioma",
+    "english": "Inglés",
+    "spanish": "Español"
+  },
+  "home": {
+    "eyebrow": "Muestra de datos abiertos del IMPI",
+    "title": "Analizador de Similitud de Marcas",
+    "intro": "Un primer prototipo de producto para ordenar marcas similares de una muestra oficial de datos abiertos del IMPI, para que los revisores puedan filtrar posibles conflictos con mayor rapidez.",
+    "sourceNote": "Reporte fuente {reportId}: {sampledRecordCount} registros importados de {rawRecordCount} registros mensuales.",
+    "limitationsTitle": "Limitaciones del Prototipo",
+    "limitations": [
+      "Usa una muestra local importada desde IMPI Datos Abiertos, no una conexión en vivo.",
+      "Todavía no consulta MARCia ni Acervo en tiempo real.",
+      "No proporciona conclusiones legales.",
+      "Todavía no analiza logotipos.",
+      "La muestra XML inspeccionada no incluye clase de Niza, número de registro ni texto de productos/servicios.",
+      "El objetivo es validar el resultado esperado y el flujo de trabajo."
+    ]
+  },
+  "search": {
+    "label": "Nombre de la marca",
+    "placeholder": "Prueba ADBAC, ADVAC, KAOMOL...",
+    "submit": "Analizar"
+  },
+  "results": {
+    "emptyTitle": "Empieza con el nombre de una marca",
+    "emptyDescription": "Ingresa una denominación para ver registros de prueba ordenados y explicaciones de similitud.",
+    "title": "Resultados Clasificados",
+    "count": "{count} registros de prueba ordenados por puntaje final.",
+    "columns": {
+      "rank": "Posición",
+      "trademark": "Marca",
+      "score": "Puntaje",
+      "niceClass": "Clase de Niza",
+      "status": "Estatus",
+      "owner": "Titular",
+      "numbers": "Números",
+      "why": "Por Qué Aparece"
+    },
+    "scoreNameLabel": "Nombre",
+    "notProvided": "No proporcionada",
+    "expedientePrefix": "Exp.",
+    "registrationPrefix": "Reg.",
+    "registrationUnavailable": "No disponible",
+    "recordSummary": {
+      "filingDate": "Fecha de presentación",
+      "missingGoodsServices": "La clase de Niza y la descripción de productos/servicios no están presentes en esta muestra de datos abiertos.",
+      "applicationTypes": {
+        "REGISTRO DE MARCA": "Registro de marca"
+      },
+      "markTypes": {
+        "NOMINATIVA": "Nominativa"
+      }
+    },
+    "statuses": {
+      "Registered": "Registrada",
+      "Pending": "Pendiente",
+      "Expired": "Vencida",
+      "Opposed": "Opuesta",
+      "Cancelled": "Cancelada"
+    },
+    "explanations": {
+      "exactMatch": "Coincidencia exacta con la denominación buscada.",
+      "containsQueryNoClass": "Contiene \"{query}\". La clase de Niza no fue proporcionada en esta muestra de datos abiertos del IMPI.",
+      "containsQueryWithClass": "Contiene \"{query}\" y pertenece a la clase de Niza {niceClass}.",
+      "queryContainsName": "La denominación buscada contiene \"{name}\", por lo que esta marca más corta puede ser relevante.",
+      "veryClose": "Variación ortográfica muy cercana de {query}.",
+      "moderate": "Similitud textual y fonética moderada con {query}.",
+      "relatedClass": "Menor similitud textual, pero la clase está relacionada con ropa, venta al por menor, bolsas o artículos deportivos.",
+      "lowSimilarity": "Nombre de marca diferente, baja similitud textual."
+    }
+  }
+}

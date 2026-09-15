@@ -79,7 +79,9 @@ function mapImpiRecord(record: ImpiXmlRecord): TrademarkRecord | null {
     status: "Pending",
     owner: cleanText(record.nombreInteresado, "Unknown owner"),
     expedienteNumber: cleanText(record.expediente, "Unknown expediente"),
-    goodsServicesDescription: `${tipoSolicitudDesc}. ${tipoMarcaDesc}. Filing date: ${fechaPresentacion}. Nice class and goods/services are not present in this open-data sample.`
+    applicationType: tipoSolicitudDesc,
+    markType: tipoMarcaDesc,
+    filingDate: fechaPresentacion
   };
 }
 

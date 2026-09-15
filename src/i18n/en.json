@@ -1,0 +1,75 @@
+{
+  "language": {
+    "label": "Language",
+    "english": "English",
+    "spanish": "Spanish"
+  },
+  "home": {
+    "eyebrow": "IMPI open-data sample",
+    "title": "Trademark Similarity Analyzer",
+    "intro": "A first-pass product prototype for ranking similar trademarks from an official IMPI open-data sample so reviewers can filter possible conflicts faster.",
+    "sourceNote": "Source report {reportId}: {sampledRecordCount} imported records from {rawRecordCount} monthly records.",
+    "limitationsTitle": "Prototype Limitations",
+    "limitations": [
+      "This uses a local sample imported from IMPI Datos Abiertos, not a live connection.",
+      "This does not query MARCia or Acervo in real time yet.",
+      "This does not provide legal conclusions.",
+      "This does not analyze logos yet.",
+      "The inspected XML sample does not include Nice class, registration number, or goods/services text.",
+      "The goal is to validate the expected output and workflow."
+    ]
+  },
+  "search": {
+    "label": "Trademark name",
+    "placeholder": "Try ADBAC, ADVAC, KAOMOL...",
+    "submit": "Analyze"
+  },
+  "results": {
+    "emptyTitle": "Start with a trademark name",
+    "emptyDescription": "Enter a denomination to see ranked mock records and similarity explanations.",
+    "title": "Ranked Results",
+    "count": "{count} mock records sorted by final score.",
+    "columns": {
+      "rank": "Rank",
+      "trademark": "Trademark",
+      "score": "Score",
+      "niceClass": "Nice Class",
+      "status": "Status",
+      "owner": "Owner",
+      "numbers": "Numbers",
+      "why": "Why It Ranked"
+    },
+    "scoreNameLabel": "Name",
+    "notProvided": "Not provided",
+    "expedientePrefix": "Exp.",
+    "registrationPrefix": "Reg.",
+    "registrationUnavailable": "Not available",
+    "recordSummary": {
+      "filingDate": "Filing date",
+      "missingGoodsServices": "Nice class and the goods/services description are not present in this open-data sample.",
+      "applicationTypes": {
+        "REGISTRO DE MARCA": "Trademark application"
+      },
+      "markTypes": {
+        "NOMINATIVA": "Word mark"
+      }
+    },
+    "statuses": {
+      "Registered": "Registered",
+      "Pending": "Pending",
+      "Expired": "Expired",
+      "Opposed": "Opposed",
+      "Cancelled": "Cancelled"
+    },
+    "explanations": {
+      "exactMatch": "Exact match with the searched denomination.",
+      "containsQueryNoClass": "Contains \"{query}\". Nice class was not provided in this IMPI open-data sample.",
+      "containsQueryWithClass": "Contains \"{query}\" and belongs to Nice class {niceClass}.",
+      "queryContainsName": "The searched denomination contains \"{name}\", so this shorter mark may be relevant.",
+      "veryClose": "Very close spelling variation of {query}.",
+      "moderate": "Moderate textual and phonetic similarity to {query}.",
+      "relatedClass": "Lower textual similarity, but the class is related to apparel, retail, bags, or sporting goods.",
+      "lowSimilarity": "Different brand name, low textual similarity."
+    }
+  }
+}
