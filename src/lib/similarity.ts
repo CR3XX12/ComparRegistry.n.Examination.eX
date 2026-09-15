@@ -105,6 +105,10 @@ function getNameSimilarityScore(query: string, trademarkName: string): number {
 }
 
 function getClassAdjustment(record: TrademarkRecord): number {
+  if (record.niceClass <= 0) {
+    return 0;
+  }
+
   if (record.niceClass === 25) {
     return 5;
   }
@@ -125,6 +129,10 @@ function explainResult(query: string, record: TrademarkRecord, nameSimilaritySco
   }
 
   if (normalizedName.includes(normalizedQuery)) {
+    if (record.niceClass <= 0) {
+      return `Contains "${normalizedQuery}". Nice class was not provided in this IMPI open-data sample.`;
+    }
+
     return `Contains "${normalizedQuery}" and belongs to Nice class ${record.niceClass}.`;
   }
 
@@ -140,7 +148,7 @@ function explainResult(query: string, record: TrademarkRecord, nameSimilaritySco
     return `Moderate textual and phonetic similarity to ${normalizedQuery}.`;
   }
 
-  if (RELATED_NICE_CLASSES.has(record.niceClass)) {
+  if (record.niceClass > 0 && RELATED_NICE_CLASSES.has(record.niceClass)) {
     return "Lower textual similarity, but the class is related to apparel, retail, bags, or sporting goods.";
   }
 
