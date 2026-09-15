@@ -2,8 +2,8 @@ import { formatMessage, type Dictionary } from "@/i18n";
 import type { TrademarkSearchResult } from "@/types/trademark";
 
 interface ResultsTableProps {
-  results: TrademarkSearchResult[];
-  content: Dictionary["results"];
+  readonly results: TrademarkSearchResult[];
+  readonly content: Dictionary["results"];
 }
 
 function getScoreTone(score: number): string {

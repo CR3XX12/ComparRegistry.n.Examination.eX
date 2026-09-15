@@ -1,9 +1,9 @@
 import type { Dictionary, Language } from "@/i18n";
 
 interface LanguageToggleProps {
-  language: Language;
-  labels: Dictionary["language"];
-  onLanguageChange: (language: Language) => void;
+  readonly language: Language;
+  readonly labels: Dictionary["language"];
+  readonly onLanguageChange: (language: Language) => void;
 }
 
 export function LanguageToggle({ language, labels, onLanguageChange }: LanguageToggleProps) {

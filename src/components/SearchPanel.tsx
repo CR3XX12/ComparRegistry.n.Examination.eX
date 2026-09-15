@@ -4,10 +4,10 @@ import { FormEvent } from "react";
 import type { Dictionary } from "@/i18n";
 
 interface SearchPanelProps {
-  query: string;
-  content: Dictionary["search"];
-  onQueryChange: (value: string) => void;
-  onAnalyze: () => void;
+  readonly query: string;
+  readonly content: Dictionary["search"];
+  readonly onQueryChange: (value: string) => void;
+  readonly onAnalyze: () => void;
 }
 
 export function SearchPanel({ query, content, onQueryChange, onAnalyze }: SearchPanelProps) {
